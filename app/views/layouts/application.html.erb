@@ -10,6 +10,16 @@
   </head>
 
   <body>
+    <header>
+      <%= link_to 'TOP', root_path %>
+      <%= link_to 'NEW', new_post_path %>
+      <% if user_signed_in? %>
+        <%= link_to 'LOG OUT', destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to 'LOG IN',new_user_session_path %>   
+        <%= link_to 'CREATE YOUR ACCOUNT', new_user_registration_path %>
+      <% end %>  
+    </header>
     <%= yield %>
   </body>
 </html>
